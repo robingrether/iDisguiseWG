@@ -1,17 +1,14 @@
 package de.robingrether.idisguise.worldguard;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Arrays;
 import java.util.logging.Level;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.sk89q.worldguard.protection.flags.DefaultFlag;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.flags.EnumFlag;
-import com.sk89q.worldguard.protection.flags.Flag;
 import com.sk89q.worldguard.protection.flags.SetFlag;
 import com.sk89q.worldguard.protection.flags.StateFlag;
+import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 
 import de.robingrether.idisguise.disguise.DisguiseType;
 
@@ -40,17 +37,9 @@ public class iDisguiseWG extends JavaPlugin {
 	
 	private void registerFlag() {
 		try {
-			Flag<?>[] flags = Arrays.copyOf(DefaultFlag.flagsList, DefaultFlag.flagsList.length + 2);
-			flags[flags.length - 2] = IDISGUISE_PLUGIN;
-			flags[flags.length - 1] = IDISGUISE_BLOCKED_TYPES;
-			Field flagsList = DefaultFlag.class.getDeclaredField("flagsList");
-			Field modifier = Field.class.getDeclaredField("modifiers");
-			int modifiers = flagsList.getModifiers();
-			modifier.setAccessible(true);
-			modifier.setInt(flagsList, modifiers & ~Modifier.FINAL);
-			flagsList.setAccessible(true);
-			flagsList.set(null, flags);
-			modifier.setInt(flagsList, modifiers);
+			FlagRegistry flagRegistry = WorldGuardPlugin.inst().getFlagRegistry();
+			flagRegistry.register(IDISGUISE_PLUGIN);
+			flagRegistry.register(IDISGUISE_BLOCKED_TYPES);
 		} catch(Exception e) {
 		}
 	}

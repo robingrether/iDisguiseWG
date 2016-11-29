@@ -31,13 +31,13 @@ public class EventListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent event) {
 		Player player = event.getPlayer();
 		if(DisguiseManager.getInstance().isDisguised(player)) {
-			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
 				DisguiseManager.getInstance().undisguise(player);
 				if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
 					player.sendMessage(plugin.getLanguage().UNDISGUISE_ENTER_REGION);
 				}
 			} else {
-				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
+				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryValue(null, iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
 				if(blockedDisguiseTypes != null && blockedDisguiseTypes.contains(DisguiseManager.getInstance().getDisguise(player).getType())) {
 					DisguiseManager.getInstance().undisguise(player);
 					if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
@@ -52,13 +52,13 @@ public class EventListener implements Listener {
 	public void onPlayerTeleport(PlayerTeleportEvent event) {
 		Player player = event.getPlayer();
 		if(DisguiseManager.getInstance().isDisguised(player)) {
-			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
 				DisguiseManager.getInstance().undisguise(player);
 				if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
 					player.sendMessage(plugin.getLanguage().UNDISGUISE_ENTER_REGION);
 				}
 			} else {
-				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
+				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryValue(null, iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
 				if(blockedDisguiseTypes != null && blockedDisguiseTypes.contains(DisguiseManager.getInstance().getDisguise(player).getType())) {
 					DisguiseManager.getInstance().undisguise(player);
 					if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
@@ -73,13 +73,13 @@ public class EventListener implements Listener {
 	public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
 		Player player = event.getPlayer();
 		if(DisguiseManager.getInstance().isDisguised(player)) {
-			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
 				DisguiseManager.getInstance().undisguise(player);
 				if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
 					player.sendMessage(plugin.getLanguage().UNDISGUISE_ENTER_REGION);
 				}
 			} else {
-				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
+				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryValue(null, iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
 				if(blockedDisguiseTypes != null && blockedDisguiseTypes.contains(DisguiseManager.getInstance().getDisguise(player).getType())) {
 					DisguiseManager.getInstance().undisguise(player);
 					if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
@@ -94,13 +94,13 @@ public class EventListener implements Listener {
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
 		if(DisguiseManager.getInstance().isDisguised(player)) {
-			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
 				DisguiseManager.getInstance().undisguise(player);
 				if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_JOIN_REGION)) {
 					player.sendMessage(plugin.getLanguage().UNDISGUISE_JOIN_REGION);
 				}
 			} else {
-				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
+				Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryValue(null, iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
 				if(blockedDisguiseTypes != null && blockedDisguiseTypes.contains(DisguiseManager.getInstance().getDisguise(player).getType())) {
 					DisguiseManager.getInstance().undisguise(player);
 					if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_JOIN_REGION)) {
@@ -114,13 +114,13 @@ public class EventListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onDisguise(DisguiseEvent event) {
 		Player player = event.getPlayer();
-		if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+		if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
 			event.setCancelled(true);
 			if(StringUtil.isNotBlank(plugin.getLanguage().CANCEL_DISGUISE)) {
 				player.sendMessage(plugin.getLanguage().CANCEL_DISGUISE);
 			}
 		} else {
-			Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).getFlag(iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
+			Set<DisguiseType> blockedDisguiseTypes = WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryValue(null, iDisguiseWG.IDISGUISE_BLOCKED_TYPES);
 			if(blockedDisguiseTypes != null && blockedDisguiseTypes.contains(event.getDisguise().getType())) {
 				event.setCancelled(true);
 				if(StringUtil.isNotBlank(plugin.getLanguage().CANCEL_DISGUISE)) {
