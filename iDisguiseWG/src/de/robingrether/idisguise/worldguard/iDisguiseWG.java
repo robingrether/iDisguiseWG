@@ -11,6 +11,7 @@ import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 
 import de.robingrether.idisguise.disguise.DisguiseType;
+import de.robingrether.idisguise.io.bstats.Metrics;
 
 public class iDisguiseWG extends JavaPlugin {
 	
@@ -19,6 +20,7 @@ public class iDisguiseWG extends JavaPlugin {
 	
 	private EventListener listener;
 	private Language language;
+	private Metrics metrics;
 	
 	public void onEnable() {
 		checkDirectory();
@@ -27,6 +29,7 @@ public class iDisguiseWG extends JavaPlugin {
 		language = new Language(this);
 		language.loadData();
 		language.saveData();
+		metrics = new Metrics(this);
 		getServer().getPluginManager().registerEvents(listener, this);
 		getLogger().log(Level.INFO, String.format("%s enabled!", getFullName()));
 	}
