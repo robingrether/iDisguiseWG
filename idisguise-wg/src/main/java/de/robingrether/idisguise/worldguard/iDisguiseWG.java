@@ -2,6 +2,7 @@ package de.robingrether.idisguise.worldguard;
 
 import java.util.logging.Level;
 
+import org.bstats.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
@@ -11,7 +12,6 @@ import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 
 import de.robingrether.idisguise.disguise.DisguiseType;
-import de.robingrether.idisguise.io.bstats.Metrics;
 
 public class iDisguiseWG extends JavaPlugin {
 	

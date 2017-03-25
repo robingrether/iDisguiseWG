@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.flags.StateFlag;
+import com.sk89q.worldguard.protection.flags.StateFlag.State;
 
 import de.robingrether.idisguise.api.DisguiseEvent;
 import de.robingrether.idisguise.disguise.DisguiseType;
@@ -31,7 +32,7 @@ public class EventListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent event) {
 		Player player = event.getPlayer();
 		if(DisguiseManager.getInstance().isDisguised(player)) {
-			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(StateFlag.State.DENY)) {
+			if(WorldGuardPlugin.inst().getRegionManager(player.getWorld()).getApplicableRegions(player.getLocation()).queryState(null, iDisguiseWG.IDISGUISE_PLUGIN).equals(State.DENY)) {
 				DisguiseManager.getInstance().undisguise(player);
 				if(StringUtil.isNotBlank(plugin.getLanguage().UNDISGUISE_ENTER_REGION)) {
 					player.sendMessage(plugin.getLanguage().UNDISGUISE_ENTER_REGION);
