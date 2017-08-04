@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.robingrether.idisguise</groupId>
   <artifactId>idisguise-wg</artifactId>
-  <version>1.1</version>
+  <version>1.2-SNAPSHOT</version>
   <name>iDisguiseWG</name>
   
   <repositories>
@@ -28,7 +28,7 @@
   	<dependency>
   		<groupId>org.bukkit</groupId>
   		<artifactId>bukkit</artifactId>
-  		<version>1.11.2-R0.1-SNAPSHOT</version>
+  		<version>1.12.1-R0.1-SNAPSHOT</version>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
@@ -40,7 +40,7 @@
   	<dependency>
   		<groupId>de.robingrether.idisguise</groupId>
   		<artifactId>idisguise-core</artifactId>
-  		<version>5.6.1</version>
+  		<version>5.6.4-SNAPSHOT</version>
   		<scope>provided</scope>
   	</dependency>
   	<dependency>
@@ -58,6 +58,12 @@
   </dependencies>
   
   <build>
+  	<resources>
+  		<resource>
+  			<directory>src/main/resources</directory>
+  			<filtering>true</filtering>
+  		</resource>
+  	</resources>
   	<plugins>
   		<plugin>
         	<artifactId>maven-compiler-plugin</artifactId>
