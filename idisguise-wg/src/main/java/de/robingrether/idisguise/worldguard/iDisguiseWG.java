@@ -2,7 +2,7 @@ package de.robingrether.idisguise.worldguard;
 
 import java.util.logging.Level;
 
-import org.bstats.Metrics;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
