@@ -1,7 +1,7 @@
 name: iDisguiseWG
 main: de.robingrether.idisguise.worldguard.iDisguiseWG
 version: ${project.version}
+api-version: 1.13
 author: Robin Grether
 depend: [iDisguise, WorldGuard]
-website: https://dev.bukkit.org/projects/idisguise-wg
-load: STARTUP
+website: https://www.spigotmc.org/resources/idisguisewg.31156/
